@@ -8,6 +8,48 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 Here is few more samples to get you started.
 
+```swift
+import QuickLayout
+
+@QuickLayout
+final class FoobarCell: UICollectionViewCell {
+
+  private let imageView = UIImageView()
+  private let titleLabel = UILabel()
+  private let subtitleLabel = UILabel()
+
+  var body: Layout {
+    HStack(spacing: 12) {
+      imageView
+        .resizable()
+        .frame(width: 60, height: 60)
+      VStack(alignment: .leading, spacing: 4) {
+        titleLabel
+        subtitleLabel
+      }
+      Spacer()
+    }
+    .padding(.horizontal, 16)
+    .padding(.vertical, 8)
+  }
+
+  func configure(image: UIImage?, title: String, subtitle: String) {
+    imageView.image = image
+    titleLabel.text = title
+    subtitleLabel.text = subtitle
+    setNeedsLayout() // Make sure this method is called to trigger the layout.
+  }
+
+  override func prepareForReuse() {
+    super.prepareForReuse()
+    imageView.image = nil
+    titleLabel.text = nil
+    subtitleLabel.text = nil
+  }
+}
+```
+----
+
 <img width="200" src={useBaseUrl('img/sample_screenshot_1.png')} />
 <br/><br/>
 
@@ -25,12 +67,12 @@ class LoginView: UIView {
     }
   }
 
-  let appIconView = IconView()
-  let usernameField = TextField()
-  let passwordField = PasswordField()
-  let logInButton = PillButton(title: "Log in")
-  let forgotPasswordButton = TextButton(title: "Forgot password?")
-  let createAccountButton = PillButton(title: "Create new account")
+  let appIconView = UIImageView()
+  let usernameField = UITextField()
+  let passwordField = UIButton()
+  let logInButton = UIButton()
+  let forgotPasswordButton = UIButton()
+  let createAccountButton = UIButton()
 
   var body: Layout {
     VStack {
