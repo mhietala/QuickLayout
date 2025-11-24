@@ -70,6 +70,12 @@ import {themes} from 'prism-react-renderer';
       navbar: {
         title: 'QuickLayout Handbook',
         items: [
+          {
+            to: 'https://github.com/facebookincubator/QuickLayout',
+            label: 'GitHub',
+            position: 'right',
+            className: 'navbar__icon header-github-link',
+          },
         ],
       },
       footer: {
@@ -77,7 +83,7 @@ import {themes} from 'prism-react-renderer';
       prism: {
         additionalLanguages: ['swift'],
         theme: themes.github,
-        darkTheme: themes.darcula,
+        darkTheme: themes.dracula,
       },
     }),
 });
