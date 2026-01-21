@@ -1,4 +1,4 @@
-# QuickLayout
+<img src='Sources/QuickLayout/docs/static/img/main-banner.png' />
 
 QuickLayout is a declarative layout library for iOS, designed to work seamlessly with UIKit. It is lightning-fast, incredibly simple to use, and offers a powerful set of modern layout primitives.
 
